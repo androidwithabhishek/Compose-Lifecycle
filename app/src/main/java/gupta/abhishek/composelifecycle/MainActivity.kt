@@ -49,8 +49,7 @@ class MainActivity : ComponentActivity() {
 fun Screen(modifier: Modifier) {
 
 // Compose Lifecycle
-
-
+    
 //    Activity
 //    ↓
 //    setContent { }
@@ -108,57 +107,6 @@ fun Screen(modifier: Modifier) {
 
 
 
-    var showDialog by remember{
-        mutableStateOf(false)
-    }
-    Column(
-      modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-
-        Button(onClick = {
-            Log.d("LifecycleObserver", "Button clicked")
-            showDialog= true
-        }) {
-            Text("Show Alert Dialog Box")
-        }
 
 
-
-    }
-
-    if (showDialog) {
-        AlertDialog(
-            onDismissRequest = {
-                showDialog = false
-            },
-            title = {
-                Text("Confirmation")
-            },
-            text = {
-                Text("Do you want to continue?")
-            },
-            confirmButton = {
-                Button(
-                    onClick = {
-                        showDialog = false
-                        Log.d("Dialog", "Accepted")
-                    }
-                ) {
-                    Text("Accept")
-                }
-            },
-            dismissButton = {
-                Button(
-                    onClick = {
-                        showDialog = false
-                        Log.d("Dialog", "Cancelled")
-                    }
-                ) {
-                    Text("Cancel")
-                }
-            }
-        )
-    }
 }
